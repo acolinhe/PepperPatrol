@@ -1,0 +1,1 @@
+web: gunicorn pepper_project:pepper_project
