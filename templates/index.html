@@ -1,12 +1,41 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    Pepper Project!
-</body>
-</html>
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Pepper Patrol</title>
+{% endblock %}
+
+{% block body %}
+<h1 style="text-align: center">Pepper Patrol</h1>
+
+<div class="container">
+    <div class="post_bar">
+        <a id="hyper" href="/post">Add Post</a>
+    </div>
+</div>
+
+<div class="interface">
+    <div class="feed">
+        <h3>Filters</h3>
+    </div>
+
+    <div class="feed">
+        <h3>Post Feed</h3>
+        {% for task in tasks %}
+        <div class="post">
+            <div class="post-info">
+                <p class="post_datetime">Posted on {{ task.post_date.strftime("%b %d, %Y; %H:%M") }}</p>
+                <p class="caption">{{ task.caption }}</p>
+            </div>
+            <div class="cont">
+                <a id="hyper" href="/update/{{ task.id }}">Update</a>
+            </div>
+            <div class="cont">
+                <a id="hyper" href="/delete/{{ task.id }}">Delete</a>
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+{% endblock %}

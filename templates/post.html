@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+
+{% block head %}
+<title>Create Post</title>
+{% endblock %}
+
+{% block body %}
+<h1>Create Post</h1>
+<div class="form">
+    <form action="/post" method="POST">
+        <input type="text" name="caption" id="caption" placeholder="Add caption here">
+        <input type="submit" value="Post">
+    </form>
+</div>
+{% endblock %}
